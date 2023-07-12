@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Sushi shi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="index.html">Sushi shi</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Compra
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="productos.html">administracion</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#!">Nueva lista</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-outline-dark" type="submit">
+              <i class="bi-cart-fill me-1"></i>
+              productos seleciondados
+              <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <header class="bg-dark py-5">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">Sushi shi</h1>
+          <p class="lead fw-normal text-white-50 mb-0">Prueba El Shushi Hecho Con Pasion De Hogar</p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="app" class="container">
+        <div v-if="error">
+          <p>Lo sentimos , ........</p>
+        </div>
+        <div v-else>
+          <section v-if="cargando">
+            <div class="spinner-border"></div>
+            <p>Cargando .....</p>
+          </section>
+          <section v-else class="album py-5">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="card w-25" style="width: 18rem" v-for="producto in productos">
+                  <img :src="producto.imagen" class="card-img-top" alt="producto.nombre" />
+                  <div class="card-body">
+                    <h5 class="card-title">{{producto.nombre}}</h5>
+                    <p class="card-text" class="text-center">{{producto.descripcion}}</p>
+                    <p class="card-text price">Precio: {{producto.precio}}</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Añadir al carrito</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- coloca aquí el pie de página (footer) -->
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--Link de VUE-->
+    <script src="../js/productos.js"></script>
+  </body>
+</html>
